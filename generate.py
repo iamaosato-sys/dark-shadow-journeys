@@ -4,7 +4,7 @@ import os
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = "Dark Shadow Journeys"
 DOMAIN = "https://www.darkshadowjourneys.com"
-GA_ID = "G-XXXXXXXXXX"          # placeholder - replaced once the real GA4 property exists
+GA_ID = "G-PEXPVHQSTY"          # Dark Shadow Journeys GA4 property
 GSC_VERIFY = "GSC-VERIFICATION-TOKEN-PLACEHOLDER"  # placeholder - replaced with real GSC meta content
 
 NAV = [
