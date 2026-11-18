@@ -22,8 +22,8 @@ These are the 5 documents written before (or reviewed after) building. Update th
 
 ## 3. Data rules
 
-- Collects nothing directly. Contact is by email link (mailto).
-- Google Analytics 4 is loaded on pages.
+- Collects nothing directly. The enquiry form opens the visitor's own email app (mailto); nothing is stored by the site.
+- Google Analytics 4 loads only after cookie consent (consent.js, Consent Mode v2). Privacy & cookies page: /privacy.html.
 - Third parties that receive data: Google Analytics 4.
 - Deletion: No stored user data. Email enquiries are deleted from the inbox on request.
 - Law: UK GDPR + PECR (cookies). EU visitors: EU GDPR. Card numbers are never stored.
@@ -33,7 +33,7 @@ These are the 5 documents written before (or reviewed after) building. Update th
 | Entry point | Risk | Notes |
 |---|---|---|
 | Contact email link | Low | Spam only |
-| Analytics script | Medium | Third-party script; consent banner still needed |
+| Analytics script | Low | Loads only after consent |
 
 ## 5. Launch checklist
 
@@ -46,4 +46,5 @@ These are the 5 documents written before (or reviewed after) building. Update th
 
 ## Open issues
 
-- GA4 loads without a cookie consent banner and there is no privacy policy page. Fix before promoting the site (UK PECR/GDPR).
+- Live domain is served by GitHub Pages, which cannot set security headers. Move the domain to the Vercel project (headers rule already set there) to get them.
+- Footer says "Registered in England & Wales" and "ATOL umbrella": add the company number and the ATOL partner's name, or remove the claims.

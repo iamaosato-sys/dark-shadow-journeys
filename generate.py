@@ -20,14 +20,10 @@ NAV = [
 def head(title, description, slug, canonical_path):
     ga_snippet = ""
     if GA_ID and "XXXX" not in GA_ID:
+        # GA4 only loads after the visitor accepts cookies (consent.js, Consent Mode v2)
         ga_snippet = f"""
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
-    gtag('js', new Date());
-    gtag('config', '{GA_ID}');
-  </script>"""
+  <script>window.GA_ID = '{GA_ID}';</script>
+  <script src="consent.js"></script>"""
     gsc_meta = ""
     if GSC_VERIFY and "PLACEHOLDER" not in GSC_VERIFY:
         gsc_meta = f'\n  <meta name="google-site-verification" content="{GSC_VERIFY}" />'
@@ -90,6 +86,8 @@ def footer_html():
           <li><a href="ethics.html">Our Ethics</a></li>
           <li><a href="itineraries.html">Itineraries</a></li>
           <li><a href="journal.html">Journal</a></li>
+          <li><a href="privacy.html">Privacy &amp; cookies</a></li>
+          <li><button type="button" id="cookieSettings" class="linklike">Cookie settings</button></li>
         </ul>
       </div>
       <div>
@@ -568,7 +566,7 @@ contact_body = f"""
       </div>
       <div><label for="message">Tell us about the journey you have in mind</label><textarea id="message" name="message" required></textarea></div>
       <button class="btn btn-primary" type="submit" style="border:none;cursor:pointer;justify-self:start;">Send Enquiry</button>
-      <p class="form-note">We typically reply within one working day. This form is a placeholder pending our booking system integration &mdash; enquiries can also be sent directly to hello@darkshadowjourneys.com.</p>
+      <p class="form-note">Pressing Send opens your own email app with your enquiry filled in, addressed to hello@darkshadowjourneys.com. Nothing is stored on this website. We typically reply within one working day. See our <a href="privacy.html">privacy policy</a>.</p>
     </form>
     <div>
       <h2>Frequently Asked</h2>
@@ -578,5 +576,61 @@ contact_body = f"""
 </section>
 """
 page("contact.html", f"Contact | {SITE}", "Get in touch with Dark Shadow Journeys to start planning an ethical dark tourism itinerary anywhere in the world.", "contact.html", contact_body)
+
+privacy_body = """
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Privacy &amp; cookies</div>
+    <span class="eyebrow">Your Data</span>
+    <h1>Privacy &amp; cookies</h1>
+    <p class="lead">Last updated 18 November 2026. Plain English: we collect as little as possible, and analytics only runs if you say yes.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap prose" style="max-width:760px;">
+    <h2>Who we are</h2>
+    <p>Dark Shadow Journeys is run by Ao Sato, trading as Dark Shadow Journeys, based on the Fylde Coast, Lancashire, United Kingdom. We are the data controller for personal data processed through this website. Contact: <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a>.</p>
+
+    <h2>What we collect</h2>
+    <p><strong>Enquiries.</strong> The contact form does not send anything to this website. Pressing Send opens your own email app; if you send that email we receive your name, email address and whatever you write about your trip. We use it only to reply and plan your journey.</p>
+    <p><strong>Analytics (only if you accept).</strong> If you click &ldquo;Accept&rdquo; on the cookie banner we use Google Analytics 4 to collect pseudonymous usage data such as pages viewed, approximate location (country/city), device and browser type. If you reject or ignore the banner, Google Analytics does not load and sets no cookies.</p>
+    <p><strong>Hosting logs.</strong> Our hosting provider processes basic technical data (such as IP address and browser) to deliver and secure the site.</p>
+    <p>We do not take payments on this website and we do not use advertising cookies.</p>
+
+    <h2>Lawful basis</h2>
+    <ul>
+      <li>Replying to enquiries: steps you ask us to take before a possible contract, and our legitimate interest in answering you (UK GDPR Article 6(1)(b) and (f)).</li>
+      <li>Analytics: your consent (Article 6(1)(a)). You can change your mind any time with &ldquo;Cookie settings&rdquo; in the footer.</li>
+      <li>Hosting and security: our legitimate interest in running a safe, working website (Article 6(1)(f)).</li>
+    </ul>
+
+    <h2>Who we share data with</h2>
+    <ul>
+      <li>Google Ireland Ltd / Google LLC &mdash; analytics, only with your consent.</li>
+      <li>Our website host (GitHub Pages / Vercel) &mdash; hosting.</li>
+      <li>Our email provider &mdash; to receive and answer enquiries.</li>
+      <li>If you book, the travel suppliers and ATOL-holding partner needed to deliver your trip; we will tell you who they are before you book.</li>
+    </ul>
+    <p>Some providers may process data outside the UK. Where they do, they rely on safeguards recognised under UK law, such as the UK&ndash;US data bridge or the International Data Transfer Addendum.</p>
+
+    <h2>Cookies</h2>
+    <table class="cookie-table">
+      <tr><th>Name</th><th>Purpose</th><th>Set when</th><th>Lasts</th></tr>
+      <tr><td>dsj.consent (browser storage)</td><td>Remembers your cookie choice</td><td>You choose Accept or Reject</td><td>Until you clear it</td></tr>
+      <tr><td>_ga, _ga_*</td><td>Google Analytics: counts visits</td><td>Only after you Accept</td><td>Up to 13 months</td></tr>
+    </table>
+
+    <h2>How long we keep it</h2>
+    <p>Enquiry emails: up to 2 years after our last contact, unless you book (booking records are kept for 6 years for tax and legal reasons). Google Analytics data: 14 months.</p>
+
+    <h2>Your rights</h2>
+    <p>You can ask to access, correct or delete your personal data, restrict or object to its use, move it, or withdraw consent. Email <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a> and we will reply within one month. You can also complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+
+    <h2>Children</h2>
+    <p>This site is for adults planning travel. We do not knowingly collect personal data from children under 13.</p>
+  </div>
+</section>
+"""
+page("privacy.html", f"Privacy & Cookies | {SITE}", "How Dark Shadow Journeys handles your personal data and cookies.", "", privacy_body)
 
 print("ALL PAGES GENERATED")

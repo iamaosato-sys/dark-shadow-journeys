@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
   var burger=document.querySelector('.burger');
-  var links=document.querySelector('nav.links');
+  var links=document.querySelector('.links');
   if(burger&&links){burger.addEventListener('click',function(){links.classList.toggle('open')});}
-  document.querySelectorAll('nav.links a').forEach(function(a){
+  document.querySelectorAll('.links a').forEach(function(a){
     if(a.getAttribute('href')===location.pathname.split('/').pop()||(location.pathname==='/'&&a.getAttribute('href')==='index.html')){a.classList.add('active')}
     a.addEventListener('click',function(){links&&links.classList.remove('open')});
   });
@@ -17,16 +17,14 @@ document.addEventListener('DOMContentLoaded',function(){
   if(form){
     form.addEventListener('submit',function(e){
       e.preventDefault();
-      var btn=form.querySelector('button[type=submit]');
-      btn.textContent='Sending…';
-      setTimeout(function(){
-        form.innerHTML='<p style="color:#d4b876;font-family:Georgia,serif;font-size:1.2rem;">Thank you. Your enquiry has been received — we typically reply within one working day with a first thought on your journey.</p>';
-      },700);
+      var v=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+      var body='Name: '+v('name')+'\nEmail: '+v('email')+'\nTheme: '+v('theme')+'\n\n'+v('message');
+      window.location.href='mailto:hello@darkshadowjourneys.com?subject='+encodeURIComponent('Journey enquiry - '+v('theme'))+'&body='+encodeURIComponent(body);
+      var note=form.querySelector('.form-note');
+      if(note){note.innerHTML='Your email app should now open with your enquiry ready to send. If nothing happened, email <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a> directly.';}
     });
   }
-  if(typeof gtag==='function'){
-    document.querySelectorAll('a.btn-primary, a.nav-cta').forEach(function(a){
-      a.addEventListener('click',function(){gtag('event','cta_click',{link_text:a.textContent.trim()})});
-    });
-  }
+  document.querySelectorAll('a.btn-primary, a.nav-cta').forEach(function(a){
+    a.addEventListener('click',function(){if(window.dsjTrack){window.dsjTrack('cta_click',{link_text:a.textContent.trim()});}});
+  });
 });

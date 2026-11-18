@@ -14,13 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='6' fill='%23a8402f'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEXPVHQSTY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PEXPVHQSTY');
-  </script>
+  <script>window.GA_ID = 'G-PEXPVHQSTY';</script>
+  <script src="consent.js"></script>
 </head>
 <body>
 <header class="site">
@@ -57,7 +52,7 @@
       </div>
       <div><label for="message">Tell us about the journey you have in mind</label><textarea id="message" name="message" required></textarea></div>
       <button class="btn btn-primary" type="submit" style="border:none;cursor:pointer;justify-self:start;">Send Enquiry</button>
-      <p class="form-note">We typically reply within one working day. This form is a placeholder pending our booking system integration &mdash; enquiries can also be sent directly to hello@darkshadowjourneys.com.</p>
+      <p class="form-note">Pressing Send opens your own email app with your enquiry filled in, addressed to hello@darkshadowjourneys.com. Nothing is stored on this website. We typically reply within one working day. See our <a href="privacy.html">privacy policy</a>.</p>
     </form>
     <div>
       <h2>Frequently Asked</h2>
@@ -90,6 +85,8 @@
           <li><a href="ethics.html">Our Ethics</a></li>
           <li><a href="itineraries.html">Itineraries</a></li>
           <li><a href="journal.html">Journal</a></li>
+          <li><a href="privacy.html">Privacy &amp; cookies</a></li>
+          <li><button type="button" id="cookieSettings" class="linklike">Cookie settings</button></li>
         </ul>
       </div>
       <div>
