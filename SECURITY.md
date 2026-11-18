@@ -11,7 +11,7 @@ These are the 5 documents written before (or reviewed after) building. Update th
 - No database or server code: the site is static files served by Vercel.
 - No passwords, API keys or tokens in the code. Public IDs only (GA4 measurement ID).
 - Any text inserted into pages with innerHTML is our own content or escaped first.
-- Security headers set as a Vercel project routing rule (dashboard > Project > Routing): nosniff, Referrer-Policy, X-Frame-Options, Permissions-Policy, HSTS. Site is deployed from the CLI, not this repo.
+- Security headers set in vercel.json: nosniff, Referrer-Policy, X-Frame-Options, Permissions-Policy, HSTS and a Content-Security-Policy. Hosted on Vercel (moved from GitHub Pages, Nov 2026).
 - Dependencies: Dependabot opens update PRs monthly where the repo has packages (npm/pip/GitHub Actions).
 
 ## 2. Login rules
@@ -46,5 +46,4 @@ These are the 5 documents written before (or reviewed after) building. Update th
 
 ## Open issues
 
-- Live domain is served by GitHub Pages, which cannot set security headers. Move the domain to the Vercel project (headers rule already set there) to get them.
-- Footer says "Registered in England & Wales" and "ATOL umbrella": add the company number and the ATOL partner's name, or remove the claims.
+- None open. (Removed unsupported ATOL/registration claims and fake form, 18 Nov 2026.)
