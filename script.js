@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded',function(){
       e.preventDefault();
       var v=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
       var body='Name: '+v('name')+'\nEmail: '+v('email')+'\nTheme: '+v('theme')+'\n\n'+v('message');
-      window.location.href='mailto:hello@darkshadowjourneys.com?subject='+encodeURIComponent('Journey enquiry - '+v('theme'))+'&body='+encodeURIComponent(body);
+      window.location.href='mailto:darkshadowjourneys@protonmail.com?subject='+encodeURIComponent('Journey enquiry - '+v('theme'))+'&body='+encodeURIComponent(body);
       var note=form.querySelector('.form-note');
-      if(note){note.innerHTML='Your email app should now open with your enquiry ready to send. If nothing happened, email <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a> directly.';}
+      if(note){note.innerHTML='Your email app should now open with your enquiry ready to send. If nothing happened, email <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a> directly.';}
     });
   }
   document.querySelectorAll('a.btn-primary, a.nav-cta').forEach(function(a){

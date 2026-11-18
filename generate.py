@@ -94,14 +94,14 @@ def footer_html():
         <h4>Get In Touch</h4>
         <ul>
           <li><a href="contact.html">Enquire</a></li>
-          <li><a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a></li>
+          <li><a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a></li>
           <li>Fylde Coast, Lancashire, UK</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Dark Shadow Journeys. Registered in England &amp; Wales. Operating under a UK host travel agency ATOL umbrella.</span>
-      <span>Aligned with the <a href="https://www.uclan.ac.uk/research/activity/institute-for-dark-tourism-research" target="_blank" rel="noopener">Institute for Dark Tourism Research, UCLan</a></span>
+      <span>&copy; 2026 Dark Shadow Journeys &middot; Ao Sato, trading as Dark Shadow Journeys &middot; Fylde Coast, Lancashire, UK</span>
+      <span>Independent business &middot; not affiliated with any university or research institute</span>
     </div>
   </div>
 </footer>
@@ -151,7 +151,7 @@ home_body = """
     <div class="grid grid-3" style="margin-top:40px;">
       <div class="card"><span class="tag">01</span><h3>Vetted, ethical guides</h3><p>Every local guide and ground operator is checked for accreditation, community standing, and a genuine connection to the place &mdash; never a generic city-tour reseller.</p></div>
       <div class="card"><span class="tag">02</span><h3>Emotional preparation</h3><p>You receive a pre-trip briefing on what to expect, how to behave, and how to process what you see &mdash; and a debrief afterwards, because these journeys stay with people.</p></div>
-      <div class="card"><span class="tag">03</span><h3>Academically grounded</h3><p>Our framework is aligned with the Institute for Dark Tourism Research (iDTR) at UCLan &mdash; the world's only dedicated academic centre for this field.</p></div>
+      <div class="card"><span class="tag">03</span><h3>Academically grounded</h3><p>Our framework draws on published research from the Institute for Dark Tourism Research (iDTR) at UCLan &mdash; a dedicated academic centre for this field.</p></div>
     </div>
   </div>
 </section>
@@ -442,7 +442,7 @@ ethics_body = f"""
 </section>
 <section class="cta-band"><div class="wrap"><h2>Questions about how we handle a specific site?</h2><a class="btn btn-primary" href="contact.html">Ask Us Directly</a></div></section>
 """
-page("ethics.html", f"Our Ethical Framework | {SITE}", "The ethical framework behind Dark Shadow Journeys, aligned with the Institute for Dark Tourism Research (iDTR) at UCLan.", "ethics.html", ethics_body)
+page("ethics.html", f"Our Ethical Framework | {SITE}", "The ethical framework behind Dark Shadow Journeys, drawing on published research from the Institute for Dark Tourism Research (iDTR) at UCLan.", "ethics.html", ethics_body)
 
 # ---------- ABOUT ----------
 about_body = """
@@ -459,7 +459,7 @@ about_body = """
     <div>
       <h2>What we do differently</h2>
       <p>We don't sell flights and hotels &mdash; you can already do that yourself. We sell context: pre-vetted ethical guides, curated sequences that build meaning across a trip, access to sites that require advance booking or licences, and the emotional preparation to actually take in what you're seeing.</p>
-      <p>We operate under a UK host travel agency's ATOL umbrella, so your booking is protected exactly as it would be with any bonded UK agent.</p>
+      <p>Financial protection depends on what you book. Before you pay for anything we will tell you, in writing, exactly who your contract is with and what protection (such as ATOL for flight-inclusive packages) applies.</p>
     </div>
     <div>
       <h2>Who it's for</h2>
@@ -532,7 +532,7 @@ page("journal.html", f"Journal | {SITE}", "Practical guides and thought leadersh
 # ---------- CONTACT ----------
 faqs = [
   ("Is dark tourism disrespectful?", "Not when it's done properly. The difference between remembrance and voyeurism is preparation, guiding, and behaviour on site &mdash; which is the entire service we provide. See our <a href=\"ethics.html\">ethics framework</a> for the full detail."),
-  ("Is my booking financially protected?", "Yes. We operate under a UK host travel agency's ATOL umbrella, so package bookings carry the same financial protection as any bonded UK travel agent."),
+  ("Is my booking financially protected?", "It depends on what you book. Before you pay anything we confirm in writing who your contract is with and which protection, such as ATOL for flight-inclusive packages, applies to your trip."),
   ("Can you build a trip around a specific family history?", "Frequently &mdash; this is one of our most common enquiries, particularly for Normandy and other WWII sites. Tell us what you know and we'll research the rest."),
   ("Do you arrange group and school trips?", "Yes, including sixth-form history department trips, with the additional briefing materials that kind of group typically needs."),
   ("What if a site I want to visit is currently closed or restricted?", "We track access restrictions closely (Chernobyl and parts of Fukushima are current examples) and will tell you plainly if something isn't currently visitable, rather than booking around it."),
@@ -566,7 +566,7 @@ contact_body = f"""
       </div>
       <div><label for="message">Tell us about the journey you have in mind</label><textarea id="message" name="message" required></textarea></div>
       <button class="btn btn-primary" type="submit" style="border:none;cursor:pointer;justify-self:start;">Send Enquiry</button>
-      <p class="form-note">Pressing Send opens your own email app with your enquiry filled in, addressed to hello@darkshadowjourneys.com. Nothing is stored on this website. We typically reply within one working day. See our <a href="privacy.html">privacy policy</a>.</p>
+      <p class="form-note">Pressing Send opens your own email app with your enquiry filled in, addressed to darkshadowjourneys@protonmail.com. Nothing is stored on this website. We typically reply within one working day. See our <a href="privacy.html">privacy policy</a>.</p>
     </form>
     <div>
       <h2>Frequently Asked</h2>
@@ -589,7 +589,7 @@ privacy_body = """
 <section>
   <div class="wrap prose" style="max-width:760px;">
     <h2>Who we are</h2>
-    <p>Dark Shadow Journeys is run by Ao Sato, trading as Dark Shadow Journeys, based on the Fylde Coast, Lancashire, United Kingdom. We are the data controller for personal data processed through this website. Contact: <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a>.</p>
+    <p>Dark Shadow Journeys is run by Ao Sato, trading as Dark Shadow Journeys, based on the Fylde Coast, Lancashire, United Kingdom. We are the data controller for personal data processed through this website. Contact: <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a>.</p>
 
     <h2>What we collect</h2>
     <p><strong>Enquiries.</strong> The contact form does not send anything to this website. Pressing Send opens your own email app; if you send that email we receive your name, email address and whatever you write about your trip. We use it only to reply and plan your journey.</p>
@@ -609,7 +609,7 @@ privacy_body = """
       <li>Google Ireland Ltd / Google LLC &mdash; analytics, only with your consent.</li>
       <li>Our website host (GitHub Pages / Vercel) &mdash; hosting.</li>
       <li>Our email provider &mdash; to receive and answer enquiries.</li>
-      <li>If you book, the travel suppliers and ATOL-holding partner needed to deliver your trip; we will tell you who they are before you book.</li>
+      <li>If you book, the travel suppliers needed to deliver your trip; we will tell you who they are before you book.</li>
     </ul>
     <p>Some providers may process data outside the UK. Where they do, they rely on safeguards recognised under UK law, such as the UK&ndash;US data bridge or the International Data Transfer Addendum.</p>
 
@@ -624,7 +624,7 @@ privacy_body = """
     <p>Enquiry emails: up to 2 years after our last contact, unless you book (booking records are kept for 6 years for tax and legal reasons). Google Analytics data: 14 months.</p>
 
     <h2>Your rights</h2>
-    <p>You can ask to access, correct or delete your personal data, restrict or object to its use, move it, or withdraw consent. Email <a href="mailto:hello@darkshadowjourneys.com">hello@darkshadowjourneys.com</a> and we will reply within one month. You can also complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+    <p>You can ask to access, correct or delete your personal data, restrict or object to its use, move it, or withdraw consent. Email <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a> and we will reply within one month. You can also complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
     <h2>Children</h2>
     <p>This site is for adults planning travel. We do not knowingly collect personal data from children under 13.</p>
