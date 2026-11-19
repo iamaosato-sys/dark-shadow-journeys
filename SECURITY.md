@@ -47,3 +47,19 @@ These are the 5 documents written before (or reviewed after) building. Update th
 ## Open issues
 
 - None open. (Removed unsupported ATOL/registration claims and fake form, 18 Nov 2026.)
+
+## 7-door check (run after every AI-made change)
+
+Checked 19 Nov 2026. This is a static site: no database, no logins, no payments.
+
+| Door | Status |
+|---|---|
+| 1. Secret keys in front-end code | Pass: no API keys or secrets in the code (full git history scanned) |
+| 2. .env in git / secret scanning | Pass: no .env ever committed. Turn on GitHub secret scanning + push protection |
+| 3. RLS on every table | N/A: no database |
+| 4. Ownership check per record | N/A: no user accounts or records |
+| 5. Admin protected on the server | N/A: no admin area |
+| 6. Rate limits on signup/forms | N/A or handled by the form provider (contact is mailto or a hosted form) |
+| 7. Payment webhooks verified | N/A: no payments |
+
+If this site ever gains a database, login, AI calls, a form backend or payments, every door above must be re-checked before launch.
