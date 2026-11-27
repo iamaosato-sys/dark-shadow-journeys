@@ -150,3 +150,8 @@ footer.site{background:var(--ink2);border-top:1px solid var(--line);padding:70px
 .consent button{padding:10px 20px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;border-radius:2px;cursor:pointer;border:1px solid var(--text-dim);background:transparent;color:var(--text)}
 .consent button[data-c=granted]{background:var(--ember);border-color:var(--ember);color:#fff}
 .consent button:focus-visible{outline:2px solid var(--gold-light);outline-offset:2px}
+
+/* Business postal address (footer + contact page) */
+address.footer-address { font-style: normal; line-height: 1.6; }
+.postal { margin-bottom: 2.5rem; }
+.postal address { font-style: normal; line-height: 1.7; }
