@@ -24,6 +24,12 @@ def head(title, description, slug, canonical_path):
         ga_snippet = f"""
   <script>window.GA_ID = '{GA_ID}';</script>
   <script src="consent.js"></script>"""
+    schema = ""
+    if slug in ("index.html", "contact.html"):
+        schema = """
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TravelAgency","name":"Dark Shadow Journeys","url":"https://www.darkshadowjourneys.com/","email":"darkshadowjourneys@protonmail.com","parentOrganization":{"@type":"Organization","name":"LineaWest"},"address":{"@type":"PostalAddress","streetAddress":"Blackpool Enterprise Centre, 291-305 Lytham Road","addressLocality":"Blackpool","postalCode":"FY4 1EW","addressCountry":"GB"}}
+</script>"""
     gsc_meta = ""
     if GSC_VERIFY and "PLACEHOLDER" not in GSC_VERIFY:
         gsc_meta = f'\n  <meta name="google-site-verification" content="{GSC_VERIFY}" />'
@@ -42,7 +48,7 @@ def head(title, description, slug, canonical_path):
 <meta property="og:site_name" content="{SITE}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='6' fill='%23a8402f'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">{gsc_meta}{ga_snippet}
+<link rel="stylesheet" href="styles.css">{gsc_meta}{ga_snippet}{schema}
 </head>
 """
 
@@ -95,7 +101,7 @@ def footer_html():
         <ul>
           <li><a href="contact.html">Enquire</a></li>
           <li><a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a></li>
-          <li>Fylde Coast, Lancashire, UK</li>
+          <li><address class="footer-address">Dark Shadow Journeys &middot; part of the LineaWest group<br>Blackpool Enterprise Centre, 291-305 Lytham Road, Blackpool, FY4 1EW</address></li>
         </ul>
       </div>
     </div>
@@ -569,6 +575,11 @@ contact_body = f"""
       <p class="form-note">Pressing Send opens your own email app with your enquiry filled in, addressed to darkshadowjourneys@protonmail.com. Nothing is stored on this website. We typically reply within one working day. See our <a href="privacy.html">privacy policy</a>.</p>
     </form>
     <div>
+      <div class="postal">
+        <h3>Postal address</h3>
+        <address>Dark Shadow Journeys &middot; part of the LineaWest group<br>Blackpool Enterprise Centre<br>291-305 Lytham Road<br>Blackpool<br>FY4 1EW</address>
+        <p class="form-note">Our business office address. We don&rsquo;t hold walk-in appointments &mdash; please email first.</p>
+      </div>
       <h2>Frequently Asked</h2>
       {faq_html}
     </div>
@@ -589,7 +600,7 @@ privacy_body = """
 <section>
   <div class="wrap prose" style="max-width:760px;">
     <h2>Who we are</h2>
-    <p>Dark Shadow Journeys is run by Ao Sato, trading as Dark Shadow Journeys, based on the Fylde Coast, Lancashire, United Kingdom. We are the data controller for personal data processed through this website. Contact: <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a>.</p>
+    <p>Dark Shadow Journeys is run by Ao Sato, trading as Dark Shadow Journeys, part of the LineaWest group, of Blackpool Enterprise Centre, 291-305 Lytham Road, Blackpool, FY4 1EW, United Kingdom. We are the data controller for personal data processed through this website. Contact: <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a>.</p>
 
     <h2>What we collect</h2>
     <p><strong>Enquiries.</strong> The contact form does not send anything to this website. Pressing Send opens your own email app; if you send that email we receive your name, email address and whatever you write about your trip. We use it only to reply and plan your journey.</p>
@@ -624,7 +635,7 @@ privacy_body = """
     <p>Enquiry emails: up to 2 years after our last contact, unless you book (booking records are kept for 6 years for tax and legal reasons). Google Analytics data: 14 months.</p>
 
     <h2>Your rights</h2>
-    <p>You can ask to access, correct or delete your personal data, restrict or object to its use, move it, or withdraw consent. Email <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a> and we will reply within one month. You can also complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+    <p>You can ask to access, correct or delete your personal data, restrict or object to its use, move it, or withdraw consent. Email <a href="mailto:darkshadowjourneys@protonmail.com">darkshadowjourneys@protonmail.com</a> (or write to us at Blackpool Enterprise Centre, 291-305 Lytham Road, Blackpool, FY4 1EW) and we will reply within one month. You can also complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
 
     <h2>Children</h2>
     <p>This site is for adults planning travel. We do not knowingly collect personal data from children under 13.</p>
